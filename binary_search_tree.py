@@ -6,11 +6,13 @@ class TreeNode():
         self.right = right
         self.left = left
 
+
 class BinaryTree():
     def __init__(self, head=None):
         self.head = head
+        self.arr = []
         
-    def convert_list(self, list: list) -> function:
+    def convert_list(self, list: list):
         """Takes in a list which must be sorted for a binary tree. The functions traverses from the mid
             and sets the pointer of left and right to recursivly be the middle"""
         sorted_list = sorted(list)
@@ -27,9 +29,10 @@ class BinaryTree():
         if root:
             self.traverse(root.left)
 
-            print(root.val)
+            self.arr.append(root.val)
 
             self.traverse(root.right)
+        return self.arr
         
             
     def find_num(self, num, tree):
@@ -43,8 +46,8 @@ class BinaryTree():
         else:
             print("num not found")
     
-arr = [random.randint(0, 100) for _ in range(100)]
+arr = [random.randint(0, 100) for _ in range(20)]
 tree = BinaryTree()
 converted_tree = tree.convert_list(arr)
-tree.traverse(converted_tree)
+print(tree.traverse(converted_tree))
 tree.find_num(random.randint(1, 100), converted_tree)

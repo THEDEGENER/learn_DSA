@@ -1,0 +1,14 @@
+from random import random
+import time
+
+tasks = []
+def random_task_time():
+    return time.sleep(random())
+
+def random_task_generator(num):
+    for i in range(num):
+        tasks.append(random_task_time()) 
+
+queue = []
+
+
